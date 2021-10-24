@@ -1,3 +1,7 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'jquery';
+import '@popperjs/core';
+import './fonts/Pokemon-Solid.ttf';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
