@@ -14,7 +14,6 @@ const PokeList = () => {
         setOffset(offset+25);
     };
     const handlePrevButton = () => {
-
         if(offset) {
             setOffset(offset -25);
         }
