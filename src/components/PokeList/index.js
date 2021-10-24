@@ -9,6 +9,7 @@ const PokeList = () => {
     const { data: pageData, isLoading } = useFetch(pokemonUrl, {})
 
     pokemonList = pageData?.results;
+    
     const handleNextButton = () => {
         setOffset(offset+25);
     };
