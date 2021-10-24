@@ -1,4 +1,9 @@
 header {
   font-family: 'Pokemon';
-  font-size: 1.5rem;
+  font-size: 2rem;
+  text-shadow:
+		-1.5px -1.5px 0 #000,
+		1.5px -1.5px 0 #000,
+		-1.5px 1.5px 0 #000,
+		1.5px 1.5px 0 #000;
 }
