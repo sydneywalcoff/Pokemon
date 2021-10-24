@@ -9,7 +9,7 @@ const Pokemon = ({ pokemon }) => {
     
 
     return(
-        <div className = "card w-25">
+        <div className = "card col-3">
             <img src = {imageUrl} className="card-img-top" />
             <h5 className="card-title text-center">{name}</h5>
         </div>

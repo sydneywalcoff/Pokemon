@@ -7,7 +7,7 @@ const PokeList = () => {
     const { data } = useFetch(pokemonUrl, {})
     const pokemonList = data?.results;
     return(
-        <div className="">
+        <div className="row justify-content-between">
             {pokemonList && pokemonList.map(pokemon => < Pokemon pokemon={pokemon}/>)}
         </div>
     );
