@@ -1,13 +1,11 @@
 import React from 'react';
 import Pokemon from '../Pokemon'
+import { useFetch } from '../../utils/useFetch';
 
 const PokeList = () => {
-    const pokemonList = [
-        {
-        name: 'Bulbasaur',
-        image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png'
-        }
-    ]
+    const pokemonUrl = 'https://pokeapi.co/api/v2/pokemon?limit=25';
+    const { data } = useFetch(pokemonUrl, {})
+    const pokemonList = data?.results;
     return(
         <div className="">
             {pokemonList && pokemonList.map(pokemon => < Pokemon pokemon={pokemon}/>)}
