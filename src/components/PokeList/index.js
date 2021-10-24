@@ -13,6 +13,12 @@ const PokeList = () => {
     const handleNextButton = () => {
         setOffset(offset+25);
     };
+    const handlePrevButton = () => {
+
+        if(offset) {
+            setOffset(offset -25);
+        }
+    };
     
 
     if(isLoading) {
@@ -27,7 +33,8 @@ const PokeList = () => {
                 {pokemonList && pokemonList.map(pokemon => < Pokemon pokemon={pokemon} />)}
             </div>
             <div className="d-flex my-3 justify-content-center">
-                <button className="btn btn-danger mx-1">prev.</button><button className="btn btn-danger mx-1" onClick={handleNextButton}>next.</button>
+                {offset > 0 && <button className="btn btn-danger mx-1" onClick ={handlePrevButton}>prev.</button>}
+                <button className="btn btn-danger mx-1" onClick={handleNextButton}>next.</button>
             </div>
         </div>
     );
