@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       < Header />
-      <div clasName = 'main'>
+      <div className = 'main'>
         < PokeList />
         < PaginationButtons />  
       </div>
