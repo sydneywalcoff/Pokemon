@@ -3,7 +3,6 @@ import Pokemon from '../Pokemon'
 import { useFetch } from '../../utils/useFetch';
 
 const PokeList = () => {
-    // const [pokemonList, setPokemonList] = useState([]);
     const [offset, setOffset] = useState(0);
     let pokemonList;
     let pokemonUrl = 'https://pokeapi.co/api/v2/pokemon?limit=25&offset='+ offset;
@@ -18,7 +17,6 @@ const PokeList = () => {
             setOffset(offset -25);
         }
     };
-    
 
     if(isLoading) {
         return (

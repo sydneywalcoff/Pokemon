@@ -17,6 +17,6 @@ export const useFetch = (url, options) => {
             }
         };
         runFetch();
-    }, [url]);
+    }, []);
     return { data, error, isLoading };
 };
