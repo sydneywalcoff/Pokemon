@@ -2,12 +2,16 @@ import React from 'react';
 import Pokemon from '../Pokemon'
 
 const PokeList = () => {
+    const pokemonList = [
+        {
+        name: 'Bulbasaur',
+        image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png'
+        }
+    ]
     return(
-        <>
-            i am a list 
-            < Pokemon />
-            < Pokemon />
-        </>
+        <div className="">
+            {pokemonList && pokemonList.map(pokemon => < Pokemon pokemon={pokemon}/>)}
+        </div>
     );
 };
 
