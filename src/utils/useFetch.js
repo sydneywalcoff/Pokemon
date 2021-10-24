@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { traverseTwoPhase } from 'react-dom/test-utils';
 
 export const useFetch = (url, options) => {
     const [data, setData] = useState(null);
@@ -18,6 +17,6 @@ export const useFetch = (url, options) => {
             }
         };
         runFetch();
-    }, []);
+    }, [url]);
     return { data, error, isLoading };
 };
