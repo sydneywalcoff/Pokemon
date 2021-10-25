@@ -12,15 +12,18 @@ const Pokemon = ({ pokemon }) => {
     const typeListData = data?.types;
     const weight = data?.weight;
 
-    const typesArr = [];
-    typeListData?.forEach(typeData=> {
-        const type = typeData.type.name
-        typesArr.push(type)
-    })
-    console.log(typesArr)
     const toggleModal = () => {
         setOpenModal(!openModal);
     };
+
+
+    const typesArr = [];
+    typeListData?.forEach(typeData => {
+        const type = typeData.type.name
+        typesArr.push(type)
+    })
+
+
     const statsArr = [];
     statList?.forEach(stat => {
         const baseStat = stat.base_stat;
@@ -44,16 +47,22 @@ const Pokemon = ({ pokemon }) => {
                         </div>
                         <h5 className="card-title text-center">{name}</h5>
                         <img src={imageUrl} className="card-img w-75 justify-self-center" alt={name} />
-                        <div className ="stats container card w-75 mb-2">
-                            {statsArr && statsArr.map(stat => (
-                                <p className="text-center">{stat}</p>
-                            ))}
-                            {weight && (
-                                <p className ='text-center'>{weight} lbs</p>
-                            )}
-                            {typesArr && typesArr.map(type => (
-                                <p>{type}</p>
-                            ))}
+                        <div className="container card w-75 mb-2">
+                            <div className="row">
+                                <div className="col">
+                                    {statsArr && statsArr.map(stat => (
+                                        <p>{stat}</p>
+                                    ))}
+                                </div>
+                                <div className ='col'>
+                                    {weight && (
+                                        <p>{weight} lbs</p>
+                                    )}
+                                    {typesArr && typesArr.map(type => (
+                                        <span className="badge bg-danger">{type}</span>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
                     </section>
                 </div>
