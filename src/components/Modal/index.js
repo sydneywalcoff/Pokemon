@@ -4,6 +4,17 @@ import './styles.css'
 const Modal = ({ show, pokemonName, stats, types, weight, image }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
 
+  const statsArr = [];
+  stats.forEach(stat =>  {
+    const baseStat = stat.base_stat;
+    const statName = stat.stat.name;
+    const statObj = {
+      [statName]: baseStat
+    }
+    statsArr.push(statObj);
+  })
+  console.log(statsArr)
+
   return (
     <div className={showHideClassName}>
       <section className="modal-main card w-25 row">
