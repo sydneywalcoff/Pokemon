@@ -3,13 +3,13 @@ import Pokemon from '../Pokemon'
 import { useFetch } from '../../utils/useFetch';
 
 const PokeList = () => {
-    // const [pokemonList, setPokemonList] = useState([]);
     const [offset, setOffset] = useState(0);
     let pokemonList;
     let pokemonUrl = 'https://pokeapi.co/api/v2/pokemon?limit=25&offset='+ offset;
     const { data: pageData, isLoading } = useFetch(pokemonUrl, {})
 
     pokemonList = pageData?.results;
+    
     const handleNextButton = () => {
         setOffset(offset+25);
     };
@@ -18,7 +18,6 @@ const PokeList = () => {
             setOffset(offset -25);
         }
     };
-    
 
     if(isLoading) {
         return (
@@ -28,7 +27,7 @@ const PokeList = () => {
     
     return (
         <div className="main">
-            <div className="row justify-content-between">
+            <div className="row">
                 {pokemonList && pokemonList.map(pokemon => < Pokemon pokemon={pokemon} />)}
             </div>
             <div className="d-flex my-3 justify-content-center">

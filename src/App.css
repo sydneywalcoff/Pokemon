@@ -1,3 +1,8 @@
+/* general styles */
+p {
+	font-size: 14px;
+}
+
 
 /* header */
 header {
@@ -14,4 +19,9 @@ header {
 .main {
 	width: 80%;
 	margin: 0 auto;
+}
+
+/* pokemon cards */
+.card {
+	width: 18%;
 }
