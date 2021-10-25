@@ -15,21 +15,18 @@ const Pokemon = ({ pokemon }) => {
     const toggleModal = () => {
         setOpenModal(!openModal);
     };
-    // const statsArr = [];
-    // statList.forEach(stat => {
-    //     const baseStat = stat.base_stat;
-    //     const statName = stat.stat.name;
-    //     const statObj = {
-    //         [statName]: baseStat
-    //     }
-    //     statsArr.push(statObj);
-    // })
-
-
+    const statsArr = [];
+    statList?.forEach(stat => {
+        const baseStat = stat.base_stat;
+        const statName = stat.stat.name;
+        const statString = `${statName}: ${baseStat}`
+        statsArr.push(statString);
+    })
+    console.log(statsArr)
     return (
         <>
             <div className="card col-3" key={name}>
-                <img src={imageUrl} className="card-img-top" alt={name} />
+                <img src={imageUrl} className="card-img w-75" alt={name} />
                 <h5 className="card-title text-center" onClick={toggleModal}>{name}</h5>
             </div>
             {openModal &&
@@ -40,9 +37,15 @@ const Pokemon = ({ pokemon }) => {
                                 x
                             </button>
                         </div>
-                        <div className="" key={name}>
-                            <img src={imageUrl} className="card-img-top" alt={name} />
-                            <h5 className="card-title text-center">{name}</h5>
+                        <div class>
+
+                        </div>
+                        <h5 className="card-title text-center">{name}</h5>
+                        <img src={imageUrl} className="card-img w-75 justify-self-center" alt={name} />
+                        <div className ="stats container card w-75 mb-2">
+                            {statsArr && statsArr.map(stat => (
+                                <p className="text-center">{stat}</p>
+                            ))}
                         </div>
                     </section>
                 </div>

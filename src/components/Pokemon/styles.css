@@ -24,3 +24,7 @@
 .display-none {
   display: none;
 }
+
+img {
+  margin: 0 auto;
+}
