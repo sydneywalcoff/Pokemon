@@ -47,19 +47,22 @@ const Pokemon = ({ pokemon }) => {
                         </div>
                         <h5 className="card-title text-center">{name}</h5>
                         <img src={imageUrl} className="card-img w-75 justify-self-center" alt={name} />
-                        <div className="container card w-75 mb-2">
+                        <div className="container card px-3 py-1 w-75 mb-2">
                             <div className="row">
                                 <div className="col">
-                                    {statsArr && statsArr.map(stat => (
-                                        <p>{stat}</p>
+                                    {statsArr && statsArr.map((stat,i) => (
+                                        <p key={i}>{stat}</p>
                                     ))}
                                 </div>
                                 <div className ='col'>
                                     {weight && (
                                         <p>{weight} lbs</p>
                                     )}
-                                    {typesArr && typesArr.map(type => (
-                                        <span className="badge bg-danger">{type}</span>
+                                    {typesArr && typesArr.map((type, i) => (
+                                        <>
+                                            <span className="badge bg-danger" key={i}>{type}</span>
+                                            <div></div>
+                                        </>
                                     ))}
                                 </div>
                             </div>
