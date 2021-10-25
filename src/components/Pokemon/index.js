@@ -33,7 +33,7 @@ const Pokemon = ({ pokemon }) => {
     })
     return (
         <>
-            <div className="card col-3" key={name}>
+            <div className="card m-2" key={name}>
                 <img src={imageUrl} className="card-img w-75" alt={name} />
                 <h5 className="card-title text-center" onClick={toggleModal}>{name}</h5>
             </div>

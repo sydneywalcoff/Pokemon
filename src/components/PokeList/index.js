@@ -27,7 +27,7 @@ const PokeList = () => {
     
     return (
         <div className="main">
-            <div className="row justify-content-between">
+            <div className="row">
                 {pokemonList && pokemonList.map(pokemon => < Pokemon pokemon={pokemon} />)}
             </div>
             <div className="d-flex my-3 justify-content-center">
