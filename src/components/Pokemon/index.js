@@ -13,7 +13,6 @@ const Pokemon = ({ pokemon }) => {
     const weight = data?.weight;
 
     const handleClick = () => {
-        console.log(showModal);
         setShowModal(!showModal);
     };
     
@@ -24,7 +23,7 @@ const Pokemon = ({ pokemon }) => {
                 <img src = {imageUrl} className="card-img-top" alt={name}/>
                 <h5 className="card-title text-center" onClick={handleClick}>{name}</h5>
             </div>
-            {showModal && <Modal show ={showModal} pokemonName={name} stats={statList} types={typeList} weight={weight} />}
+            {showModal && <Modal show ={showModal} image= {imageUrl} pokemonName={name} stats={statList} types={typeList} weight={weight} />}
         </>
     );
 
