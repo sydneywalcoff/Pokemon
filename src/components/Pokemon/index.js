@@ -8,11 +8,13 @@ const Pokemon = ({ pokemon }) => {
     const { data } = useFetch(url, {});
     const sprites = data?.sprites;
     const imageUrl = sprites?.front_default;
+    const statList = data?.stats;
+    const typeList = data?.types;
+    const weight = data?.weight;
 
     const handleClick = () => {
         console.log(showModal);
         setShowModal(!showModal);
-        console.log(showModal)
     };
     
 
@@ -22,7 +24,7 @@ const Pokemon = ({ pokemon }) => {
                 <img src = {imageUrl} className="card-img-top" alt={name}/>
                 <h5 className="card-title text-center" onClick={handleClick}>{name}</h5>
             </div>
-            {showModal && <Modal show ={showModal} pokemonName={name}/>}
+            {showModal && <Modal show ={showModal} pokemonName={name} stats={statList} types={typeList} weight={weight} />}
         </>
     );
 
