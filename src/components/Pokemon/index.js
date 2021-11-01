@@ -5,7 +5,7 @@ import './styles.css'
 const Pokemon = ({ pokemon }) => {
     const [openModal, setOpenModal] = useState(false);
     const { name, url } = pokemon;
-    const { data } = useFetch(url, {});
+    const { data, isLoading } = useFetch(url, {});
     const sprites = data?.sprites;
     const imageUrl = sprites?.front_default;
     const statList = data?.stats;
@@ -33,9 +33,16 @@ const Pokemon = ({ pokemon }) => {
     })
     return (
         <>
-            <div className="card m-2" key={name}>
-                <img src={imageUrl} className="card-img w-75" alt={name} />
-                <h5 className="card-title text-center" onClick={toggleModal}>{name}</h5>
+            <div className="card m-2 cursor-pointer" key={name} onClick={toggleModal}>
+                {isLoading ? (
+                    <p className="text-center">Loading...</p>
+                ) : (
+                    <>
+                        <img src = { imageUrl } className = "card-img w-75" alt = { name } />
+                        <h5 className="card-title text-center">{name}</h5>
+                    </>
+                )}
+
             </div>
             {openModal &&
                 <div className="modal display-block">
@@ -50,11 +57,11 @@ const Pokemon = ({ pokemon }) => {
                         <div className="container card px-3 py-1 w-75 mb-2">
                             <div className="row">
                                 <div className="col">
-                                    {statsArr && statsArr.map((stat,i) => (
+                                    {statsArr && statsArr.map((stat, i) => (
                                         <p key={i}>{stat}</p>
                                     ))}
                                 </div>
-                                <div className ='col'>
+                                <div className='col'>
                                     {weight && (
                                         <p>{weight} lbs</p>
                                     )}

@@ -1,21 +1,31 @@
 import React, { useState } from 'react';
 import Pokemon from '../Pokemon'
 import { useFetch } from '../../utils/useFetch';
+import { useParams, useHistory } from 'react-router-dom'
 
 const PokeList = () => {
-    const [offset, setOffset] = useState(0);
+    const { page: intialPage } = useParams();
+    const [page, setPage] = useState(parseInt(intialPage,10));
+    const history = useHistory();
+    const perPage = 25;
+    const [offset, setOffset] = useState((page-1)*25);
     let pokemonList;
-    let pokemonUrl = 'https://pokeapi.co/api/v2/pokemon?limit=25&offset='+ offset;
+    let pokemonUrl = `https://pokeapi.co/api/v2/pokemon?limit=${perPage}&offset=${offset}`;
     const { data: pageData, isLoading } = useFetch(pokemonUrl, {})
 
     pokemonList = pageData?.results;
+    console.log(page)
     
     const handleNextButton = () => {
         setOffset(offset+25);
+        history.push(`/${page +1}`);
+        setPage(page + 1)
     };
     const handlePrevButton = () => {
         if(offset) {
             setOffset(offset -25);
+            history.push(`/${page - 1}`);
+            setPage(page - 1);
         }
     };
 
